@@ -45,20 +45,3 @@ public class Shop {
     }
 }
 
-
-//try {
-//        if (queueOne.size() == 5 && queueTwo.size() == 5 && queueThree.size() == 5){
-//        throw new RuntimeException();
-//        }
-//        }catch (RuntimeException e){
-//        System.out.println("Вызывайте Галю!");
-//        return;
-//        }
-//        if (queueOne.size() < 5) {
-//        queueOne.add(human);
-//        } else if (queueTwo.size() < 5) {
-//        queueTwo.add(human);
-//        } else if (queueThree.size() < 5) {
-//        queueThree.add(human);
-//        }
-//        }

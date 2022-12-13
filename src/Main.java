@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class Main {
     public static void main(String[] args) {
         Shop shop = new Shop();
@@ -15,23 +18,28 @@ public class Main {
         String eleven = "Просто человек в очереди 11";
         String twelve = "Просто человек в очереди 12";
 
-        shop.addHuman(one);
-        shop.addHuman(two);
-        shop.addHuman(three);
-        shop.addHuman(four);
-        shop.addHuman(five);
-        shop.addHuman(six);
-        shop.addHuman(seven);
-        shop.addHuman(eight);
-        shop.addHuman(nine);
-        shop.addHuman(ten);
-        shop.addHuman(eleven);
-        shop.addHuman(twelve);
+        Product bread = new Product("хлеб", 45.00, 0.6);
+        Product milk = new Product("молоко", 50.00, 1.0);
+        Product cheese = new Product("сыр", 200.00, 0.3);
+        Product apples = new Product("яблоки", 150.00, 1.2);
+        Product sourCream = new Product("сметана", 90.00, 0.45);
+        Product eggs = new Product("яйца", 76.00, 10.0);
 
-        shop.size();
-        shop.deleteHuman();
-        shop.size();
+
+        Set<Product> products = new HashSet<>();
+
+        milk.add(products);
+        bread.add(products);
+
+
+
+        Recipe scrambledEggs = new Recipe("яичница", 30.4);
+        scrambledEggs.createRecipe(eggs,cheese);
     }
+
+
+
+
 
 
 }
