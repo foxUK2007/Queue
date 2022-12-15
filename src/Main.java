@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,12 +19,12 @@ public class Main {
         String eleven = "Просто человек в очереди 11";
         String twelve = "Просто человек в очереди 12";
 
-        Product bread = new Product("хлеб", 45.00, 0.6);
-        Product milk = new Product("молоко", 50.00, 1.0);
-        Product cheese = new Product("сыр", 200.00, 0.3);
-        Product apples = new Product("яблоки", 150.00, 1.2);
-        Product sourCream = new Product("сметана", 90.00, 0.45);
-        Product eggs = new Product("яйца", 76.00, 10.0);
+        Product bread = new Product("хлеб", 45.00, 1);
+        Product milk = new Product("молоко", 50.00, 1);
+        Product cheese = new Product("сыр", 200.00, 2);
+        Product apples = new Product("яблоки", 150.00, 1);
+        Product sourCream = new Product("сметана", 90.00, 1);
+        Product eggs = new Product("яйца", 76.00, 10);
 
 
         Set<Product> products = new HashSet<>();
@@ -32,14 +33,16 @@ public class Main {
         bread.add(products);
 
 
-
         Recipe scrambledEggs = new Recipe("яичница", 30.4);
-        scrambledEggs.createRecipe(eggs,cheese);
+
+        scrambledEggs.createRecipe(eggs, 1);
+
+        HashMap<String, Double> product = new HashMap<>();
+
+        product.put("яблоки", 2.0);
+
+
+        System.out.println(product + " кг");
     }
-
-
-
-
-
 
 }

@@ -1,11 +1,8 @@
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Recipe {
 
-    private Set<Product> listProducts;
+    private Map<Product, Integer> listProducts;
 
     private String name;
 
@@ -15,14 +12,14 @@ public class Recipe {
     public Recipe(String name, double totalPrice) {
         this.name = name;
         this.totalPrice = totalPrice;
-        this.listProducts = new HashSet<>();
+        this.listProducts = new HashMap();
     }
 
-    public Set<Product> getListProducts() {
+    public Map<Product, Integer> getListProducts() {
         return listProducts;
     }
 
-    public void setListProducts(Set<Product> listProducts) {
+    public void setListProducts(Map<Product, Integer> listProducts) {
         this.listProducts = listProducts;
     }
 
@@ -50,14 +47,12 @@ public class Recipe {
         }
     }
 
-    public void createRecipe(Product ... products){
-        listProducts.addAll(Arrays.asList(products));
-        System.out.println("Рецепт: " + name);
-        for (Product product: products) {
-            System.out.println("Состав продуктов: " + product.getTitle());
-            totalPrice += product.getPrice();
+    public void createRecipe(Product products, Integer value){
+        value = value == 0 ? 1 : value;
+        this.listProducts.put(products, value);
+        for (Product product : this.listProducts.keySet() ) {
+            this.totalPrice += product.getPrice() * this.listProducts.get(product);
         }
-        System.out.println("Цена за одну порцию: " +totalPrice + " руб.");
     }
 
     @Override
